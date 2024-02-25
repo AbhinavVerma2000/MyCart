@@ -67,22 +67,7 @@ const Navbar = ({ logout, user, cart, addToCart, removeFromCart, clearCart, subT
         <div className="logo">
           <Image src="/logo.png" height={100} width={100} alt="" />
         </div>
-        <div className="nav my-3 mx-auto">
-          <ul className="flex items-center space-x-2 font-bold">
-            <li>
-              <Link href={"/tshirts"}>Tshirts</Link>
-            </li>
-            <li>
-              <Link href={"/hoodies"}>Hoodies</Link>
-            </li>
-            <li>
-              <Link href={"/stickers"}>Stickers</Link>
-            </li>
-            <li>
-              <Link href={"/mugs"}>Mugs</Link>
-            </li>
-          </ul>
-        </div>
+        
         <div className="flex cart mx-5 fixed right-0 top-1">
         {user.value && <MdAccountCircle onClick={toggleDropdown} className="text-3xl my-2 mr-2 cursor-pointer" />}
           
