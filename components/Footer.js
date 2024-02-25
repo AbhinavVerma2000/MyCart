@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -21,16 +22,16 @@ const Footer = () => {
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">First Link</a>
+                  <Link href={'/tshirts'} className="text-gray-600 hover:text-gray-800">T-shirts</Link>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Second Link</a>
+                  <Link href={'/hoodies'} className="text-gray-600 hover:text-gray-800">Hoodies</Link>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Third Link</a>
+                  <Link href={'/mugs'} className="text-gray-600 hover:text-gray-800">Mugs</Link>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                  <Link href={'/stickers'} className="text-gray-600 hover:text-gray-800">Stickers</Link>
                 </li>
               </nav>
             </div>
