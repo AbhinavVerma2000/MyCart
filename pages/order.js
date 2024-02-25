@@ -47,7 +47,7 @@ const MyOrder = ({order}) => {
     </div>
   )
 }
-export async function getServerSideProps(context) {
+export const getServerSideProps=(async(context)=>{
   if (!mongoose.connections[0].readyState) {
     await mongoose.connect(process.env.MONGO_URI);
   }
@@ -58,7 +58,7 @@ export async function getServerSideProps(context) {
       order: JSON.parse(JSON.stringify(order)),
     },
   };
-}
+})
 
 
 export default MyOrder
