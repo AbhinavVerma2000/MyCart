@@ -43,7 +43,7 @@ const Stickers = ({ products }) => {
     </div>
   );
 };
-export async function getServerSideProps(context) {
+export const getServerSideProps=(async(context)=> {
   if (!mongoose.connections[0].readyState) {
     await mongoose.connect(process.env.MONGO_URI);
   }
@@ -74,6 +74,6 @@ export async function getServerSideProps(context) {
   return {
     props: { products: JSON.parse(JSON.stringify(stickers)) },
   };
-}
+})
 
 export default Stickers;
