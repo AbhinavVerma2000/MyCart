@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Checkout = ({ cart, subTotal }) => {
   return (
-    <div className="container m-20">
+    <div className="mx-10">
       <h1 className="font-bold text-3xl my-8 text-center">Checkout</h1>
       <h2 className="font-semibold text-xl">1. Delivery Details</h2>
       <div className="mx-auto flex my-5">
