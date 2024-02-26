@@ -78,7 +78,7 @@ export default function Page({ addToCart, product, variants }) {
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
               alt="ecommerce"
-              className="lg:w-1/3 w-1/3 lg:h-auto h-auto object-contain object-center rounded mx-auto"
+              className="lg:w-1/3 w-5/6 lg:h-auto h-auto object-contain object-center rounded mx-auto"
               src={product.img}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
