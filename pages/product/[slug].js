@@ -144,18 +144,18 @@ export default function Page({ addToCart, product, variants }) {
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                 <div className="flex">
                   <span className="mr-3">Color</span>
-                  {Object.keys(variants).includes('maroon') && Object.keys(variants['maroon']).includes(size) && <button onClick={()=>{refreshVariant('maroon', size)}} className={`border-2 bg-red-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='maroon'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('olive green') && Object.keys(variants['olive green']).includes(size) && <button onClick={()=>{refreshVariant('olive green', size)}} className={`border-2 ml-1 bg-lime-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='olive green'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('navy blue') && Object.keys(variants['navy blue']).includes(size) && <button onClick={()=>{refreshVariant('navy blue', size)}} className={`border-2 ml-1 bg-blue-950 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='navy blue'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('lilac') && Object.keys(variants['lilac']).includes(size) && <button onClick={()=>{refreshVariant('lilac', size)}} className={`border-2 ml-1 bg-violet-400 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='lilac'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('black') && Object.keys(variants['black']).includes(size) && <button onClick={()=>{refreshVariant('black', size)}} className={`border-2 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='black'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('white') && Object.keys(variants['white']).includes(size) && <button onClick={()=>{refreshVariant('white', size)}} className={`border-2 ml-1 bg-white rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='white'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('pink') && Object.keys(variants['pink']).includes(size) && <button onClick={()=>{refreshVariant('pink', size)}} className={`border-2 ml-1 bg-pink-400 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='pink'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants).includes('maroon') && <button onClick={()=>{refreshVariant('maroon', size)}} className={`border-2 bg-red-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='maroon'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants).includes('olive green') && <button onClick={()=>{refreshVariant('olive green', size)}} className={`border-2 ml-1 bg-lime-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='olive green'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants).includes('navy blue') && <button onClick={()=>{refreshVariant('navy blue', size)}} className={`border-2 ml-1 bg-blue-950 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='navy blue'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants).includes('lilac') && <button onClick={()=>{refreshVariant('lilac', size)}} className={`border-2 ml-1 bg-violet-400 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='lilac'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants).includes('black') && <button onClick={()=>{refreshVariant('black', size)}} className={`border-2 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='black'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants).includes('white') && <button onClick={()=>{refreshVariant('white', size)}} className={`border-2 ml-1 bg-white rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='white'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants).includes('pink') && <button onClick={()=>{refreshVariant('pink', size)}} className={`border-2 ml-1 bg-pink-400 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='pink'?'border-black':'border-gray-300'}`}></button>}
 
                 </div>
                 <div className="flex ml-6 items-center">
-                  <span className="mr-3">Size</span>
-                  <div className="relative">
+                  {(Object.keys(variants[color]).includes('S')||Object.keys(variants[color]).includes('M')||Object.keys(variants[color]).includes('L')||Object.keys(variants[color]).includes('XL')||Object.keys(variants[color]).includes('2XL')) && <span className="mr-3">Size</span>}
+                  {(Object.keys(variants[color]).includes('S')||Object.keys(variants[color]).includes('M')||Object.keys(variants[color]).includes('L')||Object.keys(variants[color]).includes('XL')||Object.keys(variants[color]).includes('2XL')) && <div className="relative">
                     <select value={size} onChange={(e)=>{refreshVariant(color, e.target.value)}} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-base pl-3 pr-10">
                       {Object.keys(variants[color]).includes('S') && <option value={'S'}>S</option>}
                       {Object.keys(variants[color]).includes('M') && <option value={'M'}>M</option>}
@@ -175,7 +175,7 @@ export default function Page({ addToCart, product, variants }) {
                         <path d="M6 9l6 6 6-6"></path>
                       </svg>
                     </span>
-                  </div>
+                  </div>}
                 </div>
               </div>
               <div className="flex">
