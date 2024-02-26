@@ -46,8 +46,10 @@ export default function Page({ addToCart, product, variants }) {
   const [color, setColor] = useState(product.color);
   const [size, setSize] = useState(product.size);
 
-  const refreshVariant=(newcolor, newsize)=>{
-    let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newcolor][newsize]['slug']}`
+  const refreshVariant=(newsize, newcolor)=>{
+    setColor(Object.keys(variants[size]))
+    setSize(Object.keys(variants))
+    let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newsize][newcolor]['slug']}`
     window.location = url;
   }
   return (
@@ -144,23 +146,24 @@ export default function Page({ addToCart, product, variants }) {
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                 <div className="flex">
                   <span className="mr-3">Color</span>
-                  {Object.keys(variants).includes('maroon') && <button onClick={()=>{refreshVariant('maroon', size)}} className={`border-2 bg-red-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='maroon'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('olive green') && <button onClick={()=>{refreshVariant('olive green', size)}} className={`border-2 ml-1 bg-lime-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='olive green'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('navy blue') && <button onClick={()=>{refreshVariant('navy blue', size)}} className={`border-2 ml-1 bg-blue-950 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='navy blue'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('lilac') && <button onClick={()=>{refreshVariant('lilac', size)}} className={`border-2 ml-1 bg-violet-400 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='lilac'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('black') && <button onClick={()=>{refreshVariant('black', size)}} className={`border-2 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='black'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('white') && <button onClick={()=>{refreshVariant('white', size)}} className={`border-2 ml-1 bg-white rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='white'?'border-black':'border-gray-300'}`}></button>}
-                  {Object.keys(variants).includes('pink') && <button onClick={()=>{refreshVariant('pink', size)}} className={`border-2 ml-1 bg-pink-400 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='pink'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants[size]).includes('maroon') && <button onClick={()=>{refreshVariant(size, 'maroon')}} className={`border-2 bg-red-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='maroon'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants[size]).includes('olive green') && <button onClick={()=>{refreshVariant(size, 'olive green')}} className={`border-2 ml-1 bg-lime-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='olive green'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants[size]).includes('navy blue') && <button onClick={()=>{refreshVariant(size, 'navy blue')}} className={`border-2 ml-1 bg-blue-950 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='navy blue'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants[size]).includes('lilac') && <button onClick={()=>{refreshVariant(size, 'lilac')}} className={`border-2 ml-1 bg-violet-400 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='lilac'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants[size]).includes('black') && <button onClick={()=>{refreshVariant(size, 'black')}} className={`border-2 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='black'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants[size]).includes('white') && <button onClick={()=>{refreshVariant(size, 'white')}} className={`border-2 ml-1 bg-white rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='white'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants[size]).includes('pink') && <button onClick={()=>{refreshVariant(size, 'pink')}} className={`border-2 ml-1 bg-pink-400 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='pink'?'border-black':'border-gray-300'}`}></button>}
 
                 </div>
                 <div className="flex ml-6 items-center">
-                  {(Object.keys(variants[color]).includes('S')||Object.keys(variants[color]).includes('M')||Object.keys(variants[color]).includes('L')||Object.keys(variants[color]).includes('XL')||Object.keys(variants[color]).includes('2XL')) && <span className="mr-3">Size</span>}
-                  {(Object.keys(variants[color]).includes('S')||Object.keys(variants[color]).includes('M')||Object.keys(variants[color]).includes('L')||Object.keys(variants[color]).includes('XL')||Object.keys(variants[color]).includes('2XL')) && <div className="relative">
-                    <select value={size} onChange={(e)=>{refreshVariant(color, e.target.value)}} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-base pl-3 pr-10">
-                      {Object.keys(variants[color]).includes('S') && <option value={'S'}>S</option>}
-                      {Object.keys(variants[color]).includes('M') && <option value={'M'}>M</option>}
-                      {Object.keys(variants[color]).includes('L') && <option value={'L'}>L</option>}
-                      {Object.keys(variants[color]).includes('XL') && <option value={'XL'}>XL</option>}
+                  {(Object.keys(variants).includes('S')||Object.keys(variants).includes('M')||Object.keys(variants).includes('L')||Object.keys(variants).includes('XL')||Object.keys(variants).includes('2XL')) && <span className="mr-3">Size</span>}
+                  {(Object.keys(variants).includes('S')||Object.keys(variants).includes('M')||Object.keys(variants).includes('L')||Object.keys(variants).includes('XL')||Object.keys(variants).includes('2XL')) && <div className="relative">
+                    <select value={size} onChange={(e)=>{refreshVariant(e.target.value, Object.keys(variants[e.target.value]))}} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-base pl-3 pr-10">
+                      {Object.keys(variants).includes('S') && <option value={'S'}>S</option>}
+                      {Object.keys(variants).includes('M') && <option value={'M'}>M</option>}
+                      {Object.keys(variants).includes('L') && <option value={'L'}>L</option>}
+                      {Object.keys(variants).includes('XL') && <option value={'XL'}>XL</option>}
+                      {Object.keys(variants).includes('2XL') && <option value={'2XL'}>2XL</option>}
                     </select>
                     <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                       <svg
@@ -235,19 +238,19 @@ export async function getServerSideProps(context) {
   }
   let product = await Product.findOne({ slug: context.query.slug });
   let variants = await Product.find({ title: product.title });
-  let colorSizeSlug = {};
+  let sizeColorSlug = {};
   for (let item of variants) {
-    if (Object.keys(colorSizeSlug).includes(item.color)) {
-      colorSizeSlug[item.color][item.size] = { slug: item.slug };
+    if (Object.keys(sizeColorSlug).includes(item.size)) {
+      sizeColorSlug[item.size][item.color] = { slug: item.slug };
     } else {
-      colorSizeSlug[item.color] = {};
-      colorSizeSlug[item.color][item.size] = { slug: item.slug };
+      sizeColorSlug[item.size] = {};
+      sizeColorSlug[item.size][item.color] = { slug: item.slug };
     }
   }
   return {
     props: {
       product: JSON.parse(JSON.stringify(product)),
-      variants: JSON.parse(JSON.stringify(colorSizeSlug)),
+      variants: JSON.parse(JSON.stringify(sizeColorSlug)),
     },
   };
 }
