@@ -149,6 +149,7 @@ export default function Page({ addToCart, product, variants }) {
                   {Object.keys(variants).includes('navy blue') && Object.keys(variants['navy blue']).includes(size) && <button onClick={()=>{refreshVariant('navy blue', size)}} className={`border-2 ml-1 bg-blue-950 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='navy blue'?'border-black':'border-gray-300'}`}></button>}
                   {Object.keys(variants).includes('lilac') && Object.keys(variants['lilac']).includes(size) && <button onClick={()=>{refreshVariant('lilac', size)}} className={`border-2 ml-1 bg-violet-400 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='lilac'?'border-black':'border-gray-300'}`}></button>}
                   {Object.keys(variants).includes('black') && Object.keys(variants['black']).includes(size) && <button onClick={()=>{refreshVariant('black', size)}} className={`border-2 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='black'?'border-black':'border-gray-300'}`}></button>}
+                  {Object.keys(variants).includes('white') && Object.keys(variants['white']).includes(size) && <button onClick={()=>{refreshVariant('black', size)}} className={`border-2 ml-1 bg-white rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='white'?'border-black':'border-gray-300'}`}></button>}
                 </div>
                 <div className="flex ml-6 items-center">
                   <span className="mr-3">Size</span>
