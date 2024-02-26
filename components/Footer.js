@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <div className=" md:w-1/2 w-full px-4">{/*{lg:w-1/4}*/}
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
                 CATEGORIES
               </h2>
@@ -60,7 +60,7 @@ const Footer = () => {
                 </li>
               </nav>
             </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            {/*<div className="lg:w-1/4 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
                 CATEGORIES
               </h2>
@@ -78,8 +78,8 @@ const Footer = () => {
                   <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
                 </li>
               </nav>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+  </div>*/}
+            {/*<div className="lg:w-1/4 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
                 CATEGORIES
               </h2>
@@ -97,7 +97,7 @@ const Footer = () => {
                   <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
                 </li>
               </nav>
-            </div>
+</div>*/}
           </div>
         </div>
         <div className="bg-gray-100">
