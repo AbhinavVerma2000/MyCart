@@ -50,7 +50,7 @@ export default function Page({ addToCart, product, variants }) {
     setColor(Object.keys(variants[size]))
     setSize(Object.keys(variants))
     let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newsize][newcolor]['slug']}`
-    window.location = url;
+    router.push(url)
   }
   return (
     <>
