@@ -36,6 +36,9 @@ const Footer = () => {
                 <li>
                   <Link href={'/appliances'} className="text-gray-600 hover:text-gray-800">Appliances</Link>
                 </li>
+                <li>
+                  <Link href={'/watches'} className="text-gray-600 hover:text-gray-800">Watches</Link>
+                </li>
               </nav>
             </div>
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
