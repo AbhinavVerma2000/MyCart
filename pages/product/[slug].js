@@ -46,14 +46,16 @@ export default function Page({ addToCart, product, variants }) {
   const [color, setColor] = useState(product.color);
   const [size, setSize] = useState(product.size);
 
-  const refreshVariant=(newsize, newcolor)=>{
-    setColor(Object.keys(variants[size]))
-    setSize(Object.keys(variants))
-    let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newsize][newcolor]['slug']}`
+  const refreshVariant=(newsize)=>{
+    setSize(newsize)
+    setColor(Object.keys(variants[newsize]))
+    let k = Object.keys(variants[newsize])
+    let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newsize][k[0]]['slug']}`
     router.push(url)
   }
   const refreshColor=(newcolor)=>{
     setColor(newcolor)
+    console.log(Object.keys(variants[size]))
     let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[size][newcolor]['slug']}`
     router.push(url)
   }
@@ -163,7 +165,7 @@ export default function Page({ addToCart, product, variants }) {
                 <div className="flex ml-6 items-center">
                   {(Object.keys(variants).includes('S')||Object.keys(variants).includes('M')||Object.keys(variants).includes('L')||Object.keys(variants).includes('XL')||Object.keys(variants).includes('2XL')) && <span className="mr-3">Size</span>}
                   {(Object.keys(variants).includes('S')||Object.keys(variants).includes('M')||Object.keys(variants).includes('L')||Object.keys(variants).includes('XL')||Object.keys(variants).includes('2XL')) && <div className="relative">
-                    <select value={size} onChange={(e)=>{refreshVariant(e.target.value, Object.keys(variants[e.target.value]))}} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-base pl-3 pr-10">
+                    <select value={size} onChange={(e)=>{refreshVariant(e.target.value)}} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-base pl-3 pr-10">
                       {Object.keys(variants).includes('S') && <option value={'S'}>S</option>}
                       {Object.keys(variants).includes('M') && <option value={'M'}>M</option>}
                       {Object.keys(variants).includes('L') && <option value={'L'}>L</option>}
