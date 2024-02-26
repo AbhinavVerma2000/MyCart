@@ -9,7 +9,7 @@ import { HiOutlineMinusSmall } from "react-icons/hi2";
 import { IoBagCheck } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 
-const Navbar = ({ logout, user, cart, addToCart, removeFromCart, clearCart, subTotal}) => {
+const Navbar = ({ logout, user, cart, addToCart, removeFromCart, clearCart}) => {
   const [dropdown, setDropdown] = useState(false)
   const toggleDropdown=()=>{
     setDropdown(!dropdown)
