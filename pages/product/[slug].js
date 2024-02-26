@@ -48,8 +48,8 @@ export default function Page({ addToCart, product, variants }) {
 
   const refreshVariant=(newsize)=>{
     setSize(newsize)
-    setColor(Object.keys(variants[newsize]))
     let k = Object.keys(variants[newsize])
+    setColor(k[0])
     let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newsize][k[0]]['slug']}`
     router.push(url)
   }
