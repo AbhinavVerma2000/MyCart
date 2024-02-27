@@ -11,7 +11,7 @@ const Signup = () => {
 
   const router = useRouter()
   useEffect(()=>{
-    if(localStorage.getItem('token')) router.push('/')
+    if(localStorage.getItem('token')) router.push(process.env.NEXT_PUBLIC_HOST)
   })
 
   const handleSubmit = async (e) => {
