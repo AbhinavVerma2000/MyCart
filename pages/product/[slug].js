@@ -152,7 +152,7 @@ export default function Page({ addToCart, product, variants }) {
               <p className="leading-relaxed">{product.desc}</p>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                 <div className="flex">
-                  <span className="mr-3">Color</span>
+                  {variants[size][0] && <span className="mr-3">Color</span>}
                   {Object.keys(variants[size]).includes('maroon') && <button onClick={()=>{refreshColor('maroon')}} className={`border-2 bg-red-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='maroon'?'border-black':'border-gray-300'}`}></button>}
                   {Object.keys(variants[size]).includes('olive green') && <button onClick={()=>{refreshColor('olive green')}} className={`border-2 ml-1 bg-lime-900 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='olive green'?'border-black':'border-gray-300'}`}></button>}
                   {Object.keys(variants[size]).includes('navy blue') && <button onClick={()=>{refreshColor('navy blue')}} className={`border-2 ml-1 bg-blue-950 rounded-full w-6 h-6 focus:outline-none hover:border-gray-500 ${color==='navy blue'?'border-black':'border-gray-300'}`}></button>}
