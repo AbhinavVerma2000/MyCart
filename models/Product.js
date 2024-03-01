@@ -11,7 +11,28 @@ const ProductSchema = new mongoose.Schema({
     price: {type: Number, required: true},
     availableQty: {type: Number, required: true},
     rate: {type: Number, min: 0, max: 5, required: true},
-    review: {type: Number, default: 0}
+    reviews: {type: Number, default: 0},
+    review: [
+        {
+          user: {
+            type: mongoose.Schema.ObjectId,
+            ref: "User",
+            required: true,
+          },
+          name: {
+            type: String,
+            required: true,
+          },
+          rating: {
+            type: String,
+            required: true,
+          },
+          comment: {
+            type: String,
+            required: true,
+          },
+        },
+      ],
 }, {timestamps: true})
 mongoose.models={}
 export default mongoose.model("Product", ProductSchema)
