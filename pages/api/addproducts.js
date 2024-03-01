@@ -14,7 +14,7 @@ const handler = async (req, res) => {
         price: req.body[i].price,
         availableQty: req.body[i].availableQty,
         rate: {type: Number, min: 0, max: 5, required: true},
-        review: {type: Number, default: 0}
+        reviews: {type: Number, default: 0}
       });
       await p.save();
     }
