@@ -60,6 +60,63 @@ export default function Page({ addToCart, product, variants }) {
     router.push(url)
   }
   
+  const rating1 = ()=>{
+    if(document.getElementById("1").classList.contains("fill-orange-500")){
+      document.getElementById("1").classList.remove("fill-orange-500")
+      document.getElementById("1").classList.remove("text-orange-500")
+    }
+    else{
+      document.getElementById("1").classList.add("fill-orange-500")
+      document.getElementById("1").classList.add("text-orange-500")
+    }
+  }
+  const rating2 = ()=>{
+    if(document.getElementById("2").classList.contains("fill-orange-500")){
+      document.getElementById("2").classList.remove("fill-orange-500")
+      document.getElementById("2").classList.remove("text-orange-500")
+    }
+    else{
+      document.getElementById("2").classList.add("fill-orange-500")
+      document.getElementById("2").classList.add("text-orange-500")
+    }
+    rating1();
+  }
+
+  const rating3 = ()=>{
+    if(document.getElementById("3").classList.contains("fill-orange-500")){
+      document.getElementById("3").classList.remove("fill-orange-500")
+      document.getElementById("3").classList.remove("text-orange-500")
+    }
+    else{
+      document.getElementById("3").classList.add("fill-orange-500")
+      document.getElementById("3").classList.add("text-orange-500")
+    }
+    rating2();
+  }
+
+  const rating4 = ()=>{
+    if(document.getElementById("4").classList.contains("fill-orange-500")){
+      document.getElementById("4").classList.remove("fill-orange-500")
+      document.getElementById("4").classList.remove("text-orange-500")
+    }
+    else{
+      document.getElementById("4").classList.add("fill-orange-500")
+      document.getElementById("4").classList.add("text-orange-500")
+    }
+    rating3();
+  }
+  const rating5 = ()=>{
+    if(document.getElementById("5").classList.contains("fill-orange-500")){
+      document.getElementById("5").classList.remove("fill-orange-500")
+      document.getElementById("5").classList.remove("text-orange-500")
+    }
+    else{
+      document.getElementById("5").classList.add("fill-orange-500")
+      document.getElementById("5").classList.add("text-orange-500")
+    }
+    rating4();
+  }
+
   return (
     <>
       <section className="text-gray-600 body-font overflow-hidden">
@@ -91,57 +148,57 @@ export default function Page({ addToCart, product, variants }) {
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
-                  <svg
+                  <svg id="1" onMouseEnter={rating1} onMouseLeave={rating1}
                     fill="none"
                     stroke="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="hover:text-orange-500 w-4 h-4 hover:fill-orange-500"
+                    className="w-4 h-4"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
                   <svg
-                    fill="none"
+                    fill="none" id="2" onMouseEnter={rating2} onMouseLeave={rating2}
                     stroke="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="hover:text-orange-500 w-4 h-4 hover:fill-orange-500"
+                    className="w-4 h-4"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
                   <svg
-                    fill="none"
+                    fill="none" id="3" onMouseEnter={rating3} onMouseLeave={rating3}
                     stroke="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="hover:text-orange-500 w-4 h-4 hover:fill-orange-500"
+                    className="w-4 h-4"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
                   <svg
-                    fill="none"
+                    fill="none" id="4" onMouseEnter={rating4} onMouseLeave={rating4}
                     stroke="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 hover:text-orange-500 hover:fill-orange-500"
+                    className="w-4 h-4"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
                   <svg
-                    fill="none"
+                    fill="none" id="5" onMouseEnter={rating5} onMouseLeave={rating5}
                     stroke="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="hover:text-orange-500 w-4 h-4 hover:fill-orange-500"
+                    className="w-4 h-4"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
