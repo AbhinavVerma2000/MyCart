@@ -3,12 +3,43 @@ import { MdPayment } from "react-icons/md";
 import Link from "next/link";
 
 const Checkout = ({ cart, subTotal }) => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [address, setAddress] = useState('')
+  const [phone, setPhone] = useState('')
+  const [state, setState] = useState('')
+  const [city, setCity] = useState('')
+  const [pincode, setPincode] = useState('')
+  const [disabled, setDisabled] = useState(true)
+  const handleChange=(e)=>{
+    if(e.target.name=='name'){
+      setName(e.target.value)
+    }else if(e.target.name=='email'){
+      setEmail(e.target.value)
+    }else if(e.target.name=='address'){
+      setAddress(e.target.value)
+    }else if(e.target.name=='phone'){
+      setPhone(e.target.value)
+    }else if(e.target.name=='state'){
+      setState(e.target.value)
+    }else if(e.target.name=='city'){
+      setCity(e.target.value)
+    }else if(e.target.name=='pincode'){
+      setPincode(e.target.value)
+    }
+    if(name && email && address && phone && pincode){
+      setDisabled(false)
+    }
+    else{
+      setDisabled(true)
+    }
+  }
   return (
     <div className="mx-10">
       <h1 className="font-bold text-3xl my-8 text-center">Checkout</h1>
       <h2 className="font-semibold text-xl">1. Delivery Details</h2>
-      <div className="mx-auto flex my-5">
-        <div className="px-2 w-1/3">
+      <div className="mx-auto flex flex-col md:flex-row my-5">
+        <div className="px-2 w-auto md:w-1/3">
           <div className="mb-4">
             <label htmlFor="name" className="leading-7 text-sm text-gray-600">
               Name
@@ -21,7 +52,7 @@ const Checkout = ({ cart, subTotal }) => {
             />
           </div>
         </div>
-        <div className="px-2 w-1/3">
+        <div className="px-2 w-auto md:w-1/3">
           <div className="mb-4">
             <label htmlFor="email" className="leading-7 text-sm text-gray-600">
               Email
@@ -35,7 +66,7 @@ const Checkout = ({ cart, subTotal }) => {
           </div>
         </div>
       </div>
-      <div className="px-2 w-1/2">
+      <div className="px-2 w-auto md:w-1/2">
         <div className="mb-4">
           <label htmlFor="address" className="leading-7 text-sm text-gray-600">
             Address
@@ -49,8 +80,8 @@ const Checkout = ({ cart, subTotal }) => {
           />
         </div>
       </div>
-      <div className="mx-auto flex my-5">
-        <div className="px-2 w-1/3">
+      <div className="mx-auto flex flex-col md:flex-row my-5">
+        <div className="px-2 w-auto md:w-1/3">
           <div className="mb-4">
             <label htmlFor="phone" className="leading-7 text-sm text-gray-600">
               Phone
@@ -63,7 +94,7 @@ const Checkout = ({ cart, subTotal }) => {
             />
           </div>
         </div>
-        <div className="px-2 w-1/3">
+        <div className="px-2 w-auto md:w-1/3">
           <div className="mb-4">
             <label htmlFor="city" className="leading-7 text-sm text-gray-600">
               City
@@ -77,8 +108,8 @@ const Checkout = ({ cart, subTotal }) => {
           </div>
         </div>
       </div>
-      <div className="mx-auto flex my-5">
-        <div className="px-2 w-1/3">
+      <div className="mx-auto flex flex-col md:flex-row my-5">
+        <div className="px-2 w-auto md:w-1/3">
           <div className="mb-4">
             <label htmlFor="state" className="leading-7 text-sm text-gray-600">
               State
@@ -91,7 +122,7 @@ const Checkout = ({ cart, subTotal }) => {
             />
           </div>
         </div>
-        <div className="px-2 w-1/3">
+        <div className="px-2 w-auto md:w-1/3">
           <div className="mb-4">
             <label
               htmlFor="pincode"
@@ -127,7 +158,7 @@ const Checkout = ({ cart, subTotal }) => {
         })}
       </ol>
       <span className="my-5">Total: ₹{subTotal}</span>
-      <Link href={"/order"}><button className="flex mx-auto mt-16 text-white bg-orange-500 border-0 py-2 px-5 focus:outline-none hover:bg-orange-600 rounded text-lg items-center">
+      <Link href={"/order"}><button disabled={disabled} className="disabled:bg-orange-300 flex mx-auto mt-16 text-white bg-orange-500 border-0 py-2 px-5 focus:outline-none hover:bg-orange-600 rounded text-lg items-center">
         <MdPayment className="mx-2" />Proceed to Pay ₹{subTotal}
       </button></Link>
     </div>
