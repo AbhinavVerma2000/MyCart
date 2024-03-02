@@ -1,6 +1,7 @@
 import React from "react";
 import { MdPayment } from "react-icons/md";
 import Link from "next/link";
+import { useState } from "react";
 
 const Checkout = ({ cart, subTotal }) => {
   const [name, setName] = useState('')
@@ -87,7 +88,7 @@ const Checkout = ({ cart, subTotal }) => {
               Phone
             </label>
             <input
-              type="phone"
+              type="phone" value={phone}
               id="phone"
               name="phone"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -100,7 +101,7 @@ const Checkout = ({ cart, subTotal }) => {
               City
             </label>
             <input
-              type="text"
+              type="text" value={city}
               id="city"
               name="city"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -115,7 +116,7 @@ const Checkout = ({ cart, subTotal }) => {
               State
             </label>
             <input
-              type="text"
+              type="text" value={state}
               id="state"
               name="state"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
