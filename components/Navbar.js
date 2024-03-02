@@ -74,19 +74,47 @@ const Navbar = ({ logout, user, cart, addToCart, removeFromCart, clearCart}) => 
           <button onClick={toggleCart}>
             <BsCart3 className="text-2xl my-2 ml-2" />
           </button>
-          {dropdown && <div className="fixed right-5 top-12 rounded-sm shadow-lg text-sm text-white bg-orange-400 w-40">
-            <ul>
-              <li className="text-center hover:font-semibold py-1">
-                <Link href={'/myaccount'}>My Account</Link>
-              </li>
-              <li className="text-center hover:font-semibold py-1">
-                <Link href={'/order'}>Orders</Link>
-              </li>
-              <li onClick={logout} className="cursor-pointer text-center hover:font-semibold py-1">
-                Logout
-              </li>
-            </ul>
-          </div>}
+          {dropdown && <div className="relative inline-block text-left">
+              <div></div>
+
+              <div
+                className="absolute right-0 z-10 mt-2 w-56 top-10 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabIndex="-1"
+              >
+                <div className="py-1" role="none">
+                  <Link
+                    href={"/myaccount"}
+                    className="text-gray-700 block px-4 py-2 text-sm hover:text-orange-500"
+                    role="menuitem"
+                    tabIndex="-1"
+                    id="menu-item-0"
+                  >
+                    My Account
+                  </Link>
+                  <Link
+                    href={"/orders"}
+                    className="text-gray-700 block px-4 py-2 text-sm hover:text-orange-500"
+                    role="menuitem"
+                    tabIndex="-1"
+                    id="menu-item-1"
+                  >
+                    Orders
+                  </Link>
+                  <button
+                    onClick={logout}
+                    className="text-gray-700 block w-full px-4 py-2 text-left text-sm hover:text-orange-500"
+                    role="menuitem"
+                    tabIndex="-1"
+                    id="menu-item-3"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            </div>}
         </div>
       </div>
     </>
