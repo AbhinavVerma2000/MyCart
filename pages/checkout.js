@@ -46,7 +46,7 @@ const Checkout = ({ cart, subTotal }) => {
               Name
             </label>
             <input
-              type="name"
+              type="name" onChange={handleChange} value={name}
               id="name"
               name="name"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -59,7 +59,7 @@ const Checkout = ({ cart, subTotal }) => {
               Email
             </label>
             <input
-              type="email"
+              type="email" onChange={handleChange} value={email}
               id="email"
               name="email"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -73,7 +73,7 @@ const Checkout = ({ cart, subTotal }) => {
             Address
           </label>
           <textarea
-            cols={30}
+            cols={30} onChange={handleChange} value={address}
             rows={3}
             id="address"
             name="address"
@@ -88,7 +88,7 @@ const Checkout = ({ cart, subTotal }) => {
               Phone
             </label>
             <input
-              type="phone" value={phone}
+              type="phone" value={phone} onChange={handleChange}
               id="phone"
               name="phone"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -101,7 +101,7 @@ const Checkout = ({ cart, subTotal }) => {
               City
             </label>
             <input
-              type="text" value={city}
+              type="text" value={city} onChange={handleChange}
               id="city"
               name="city"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -116,7 +116,7 @@ const Checkout = ({ cart, subTotal }) => {
               State
             </label>
             <input
-              type="text" value={state}
+              type="text" value={state} onChange={handleChange}
               id="state"
               name="state"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -132,7 +132,7 @@ const Checkout = ({ cart, subTotal }) => {
               Pincode
             </label>
             <input
-              type="email"
+              type="email" value={pincode} onChange={handleChange}
               id="pincode"
               name="pincode"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
