@@ -4,8 +4,10 @@ import { useState } from "react";
 import mongoose from "mongoose";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Review from "@/models/Review";
+import { FaUserAlt } from "react-icons/fa";
 
-export default function Page({ addToCart, product, variants }) {
+export default function Page({ addToCart, product, variants, review }) {
 
   const router = useRouter();
   const [pin, setPin] = useState();
@@ -226,7 +228,25 @@ export default function Page({ addToCart, product, variants }) {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
-                  <span className="text-gray-600 ml-3">{product.reviews} Reviews</span>
+                  <span className="text-gray-600 ml-3">{review[0]==null?0:review.length} Reviews</span>
+                  <input
+                    type="number"
+                    min={1}
+                    max={5}
+                    onChange={(e) => {
+                      setRate(e.target.value);
+                    }}
+                  />
+                  <textarea
+                    name="comment"
+                    id=""
+                    cols="30"
+                    rows="5"
+                    onChange={(e) => setComment(e.target.value)}
+                  ></textarea>
+                  <button type="submit" onClick={submit}>
+                    Submit
+                  </button>
                 </span>
                 
               </div>
@@ -315,6 +335,20 @@ export default function Page({ addToCart, product, variants }) {
             </div>
           </div>
         </div>
+        <div className="overflow-x-auto">
+          {Array.from(review).map((item)=>{
+            return item && (<div key={item._id} className="p-10 border rounded-lg w-fit text-xs flex flex-col">
+            <div>
+              <div className="bg-slate-600 rounded-full w-fit text-white justify-center px-4 py-4 mx-auto">
+                <FaUserAlt className="size-5" />
+              </div>
+              <div className="w-fit mx-auto">{item.name}</div>
+            </div>
+            <div className="mt-5 w-60 text-wrap">{item.comment}</div>
+            </div>)
+          })
+          }
+        </div>
       </section>
     </>
   );
@@ -323,6 +357,7 @@ export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
     await mongoose.connect(process.env.MONGO_URI);
   }
+  let review = [await Review.findOne({ slug: context.query.slug })];
   let product = await Product.findOne({ slug: context.query.slug });
   let variants = await Product.find({ title: product.title });
   let sizeColorSlug = {};
@@ -336,6 +371,7 @@ export async function getServerSideProps(context) {
   }
   return {
     props: {
+      review: JSON.parse(JSON.stringify(review)),
       product: JSON.parse(JSON.stringify(product)),
       variants: JSON.parse(JSON.stringify(sizeColorSlug)),
     },
