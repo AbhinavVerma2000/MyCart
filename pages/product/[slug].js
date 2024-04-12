@@ -345,7 +345,7 @@ export default function Page({ addToCart, product, variants, review }) {
             </div>
           </div>
         </div>
-        <div className='bg-orange-200 flex flex-col border rounded-xl mx-auto'>
+        <div className='bg-orange-200 flex flex-col border rounded-xl w-80 mx-auto'>
                     <input className="w-32 m-2"
                       type="number" placeholder="Rating"
                       min={1}
