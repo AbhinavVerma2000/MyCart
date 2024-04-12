@@ -38,7 +38,7 @@ export default function App({ Component, pageProps }) {
     
   },[router.events, router.query])
   const logout = ()=>{
-    localStorage.removeItem('token')
+    localStorage.clear()
     setUser({value: null})
     setKey(Math.random())
     setTimeout(()=>{
