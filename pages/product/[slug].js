@@ -229,26 +229,7 @@ export default function Page({ addToCart, product, variants, review }) {
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
                   <span className="text-gray-600 ml-3">{review[0]==null?0:review.length} Reviews</span>
-                  <div className={`bg-orange-200 flex flex-col border rounded-xl absolute right-1/3 top-1/3`}>
-                    <input className="w-32 m-2"
-                      type="number" placeholder="Rating"
-                      min={1}
-                      max={5}
-                      onChange={(e) => {
-                        setRate(e.target.value);
-                      }}
-                    />
-                    <textarea placeholder="Comment" className="m-2"
-                      name="comment"
-                      id=""
-                      cols="30"
-                      rows="5"
-                      onChange={(e) => setComment(e.target.value)}
-                    ></textarea>
-                    <button type="submit" onClick={submit} className="text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded">
-                      Submit
-                    </button>
-                  </div>
+                  
                 </span>
                 
               </div>
@@ -325,7 +306,7 @@ export default function Page({ addToCart, product, variants, review }) {
                 </button>
                 
               </div>
-              <div><button className=" text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded mt-4">Feedback</button></div>
+              
               {!service && service != null && (
                 <div className="text-red-700">
                   Sorry! Service is not available
@@ -339,9 +320,29 @@ export default function Page({ addToCart, product, variants, review }) {
             </div>
           </div>
         </div>
-        <div className="overflow-x-auto">
+        <div className='bg-orange-200 flex flex-col border rounded-xl mx-auto'>
+                    <input className="w-32 m-2"
+                      type="number" placeholder="Rating"
+                      min={1}
+                      max={5}
+                      onChange={(e) => {
+                        setRate(e.target.value);
+                      }}
+                    />
+                    <textarea placeholder="Comment" className="m-2"
+                      name="comment"
+                      id=""
+                      cols="30"
+                      rows="5"
+                      onChange={(e) => setComment(e.target.value)}
+                    ></textarea>
+                    <button type="submit" onClick={submit} className="text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded">
+                      Submit
+                    </button>
+                  </div>
+        <div className="overflow-x-auto mt-12">
           {Array.from(review).map((item)=>{
-            return item && (<div key={item._id} className="p-10 border rounded-lg w-fit text-xs flex flex-col">
+            return item && (<div key={item._id} className="p-10 border rounded-lg w-fit text-xs flex flex-col mx-auto">
             <div>
               <div className="bg-slate-600 rounded-full w-fit text-white justify-center px-4 py-4 mx-auto">
                 <FaUserAlt className="size-5" />
