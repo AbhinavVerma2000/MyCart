@@ -321,6 +321,7 @@ export default function Page({ addToCart, product, variants, review }) {
                 >
                   Check
                 </button>
+                <button className=" text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded">Feedback</button>
               </div>
               {!service && service != null && (
                 <div className="text-red-700">
