@@ -8,9 +8,35 @@ import Review from "@/models/Review";
 import { FaUserAlt } from "react-icons/fa";
 
 export default function Page({ addToCart, product, variants, review }) {
-
   const router = useRouter();
   const [pin, setPin] = useState();
+  const [rate, setRate] = useState(0);
+  const [comment, setComment] = useState(null);
+  const submit = async (e) => {
+    e.preventDefault();
+    const data = {
+      name: localStorage.getItem("name"),
+      email: localStorage.getItem("email"),
+      slug: product.slug,
+      rate,
+      comment,
+    };
+    try {
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/review`, {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      let response = await res.json();
+      setRate(0);
+      setComment("");
+      router.reload();
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   const [service, setService] = useState();
   const checkServiceability = async () => {
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
@@ -304,7 +330,6 @@ export default function Page({ addToCart, product, variants, review }) {
                 >
                   Check
                 </button>
-                
               </div>
               
               {!service && service != null && (
