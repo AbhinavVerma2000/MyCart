@@ -229,24 +229,26 @@ export default function Page({ addToCart, product, variants, review }) {
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
                   <span className="text-gray-600 ml-3">{review[0]==null?0:review.length} Reviews</span>
-                  <input
-                    type="number"
-                    min={1}
-                    max={5}
-                    onChange={(e) => {
-                      setRate(e.target.value);
-                    }}
-                  />
-                  <textarea
-                    name="comment"
-                    id=""
-                    cols="30"
-                    rows="5"
-                    onChange={(e) => setComment(e.target.value)}
-                  ></textarea>
-                  <button type="submit" onClick={submit}>
-                    Submit
-                  </button>
+                  <div className={`bg-orange-200 flex flex-col border rounded-xl absolute right-1/3 top-1/3`}>
+                    <input className="w-32 m-2"
+                      type="number" placeholder="Rating"
+                      min={1}
+                      max={5}
+                      onChange={(e) => {
+                        setRate(e.target.value);
+                      }}
+                    />
+                    <textarea placeholder="Comment" className="m-2"
+                      name="comment"
+                      id=""
+                      cols="30"
+                      rows="5"
+                      onChange={(e) => setComment(e.target.value)}
+                    ></textarea>
+                    <button type="submit" onClick={submit} className="text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded">
+                      Submit
+                    </button>
+                  </div>
                 </span>
                 
               </div>
@@ -321,8 +323,9 @@ export default function Page({ addToCart, product, variants, review }) {
                 >
                   Check
                 </button>
-                <button className=" text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded">Feedback</button>
+                
               </div>
+              <div><button className=" text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded mt-4">Feedback</button></div>
               {!service && service != null && (
                 <div className="text-red-700">
                   Sorry! Service is not available
