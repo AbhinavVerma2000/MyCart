@@ -90,11 +90,16 @@ export default function Page({ addToCart, product, variants, review }) {
     router.push(url);
   };
 
-  let trate=0
-  for (let i = 0; i < review.length; i++) {
-    trate += review[i].rating;
+  let trate=0;
+  let avgrate=0;
+  if (review[0]!=null) {
+    for (let i = 0; i < review.length; i++) {
+      trate += review[i].rating;
+    }
+    avgrate = (trate/review.length)
   }
-  let avgrate = (trate/review.length)
+
+
   /*const rating1 = () => {
     if (document.getElementById("1").classList.contains("fill-orange-500")) {
       document.getElementById("1").classList.remove("fill-orange-500");
