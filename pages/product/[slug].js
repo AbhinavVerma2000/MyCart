@@ -481,7 +481,7 @@ export default function Page({ addToCart, product, variants, review }) {
                       Submit
                     </button>
                   </div>
-        <div className="overflow-x-auto mt-12 flex">
+        <div className="overflow-x-auto mt-12 flex" style={{scrollbarWidth: "none"}}>
           {Array.from(review).map((item) => {
             return (
               item && (
