@@ -31,7 +31,7 @@ export default function Page({ addToCart, product, variants, review }) {
       });
       let response = await res.json();
       setRate(0);
-      setComment(null);
+      setComment("");
       router.reload();
     } catch (error) {
       console.error("Error:", error);
@@ -99,7 +99,7 @@ export default function Page({ addToCart, product, variants, review }) {
     avgrate = (trate/review.length)
   }
 
-
+  
   /*const rating1 = () => {
     if (document.getElementById("1").classList.contains("fill-orange-500")) {
       document.getElementById("1").classList.remove("fill-orange-500");
@@ -481,13 +481,13 @@ export default function Page({ addToCart, product, variants, review }) {
                       Submit
                     </button>
                   </div>
-        <div className="overflow-x-auto mt-12">
+        <div className="overflow-x-auto mt-12 flex">
           {Array.from(review).map((item) => {
             return (
               item && (
                 <div
                   key={item._id}
-                  className="p-10 border rounded-lg w-fit text-xs flex flex-col mx-auto"
+                  className="p-10 border rounded-lg w-fit text-xs flex flex-col mx-5"
                 >
                   <div>
                     <div className="bg-slate-600 rounded-full w-fit text-white justify-center px-4 py-4 mx-auto">
@@ -551,7 +551,7 @@ export default function Page({ addToCart, product, variants, review }) {
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg></div>
                   
-                  <div className="mt-5 w-60 text-wrap">{item.comment}</div>
+                  <div className="mt-5 w-60 text-wrap">{item.comment}{console.log(Array.from(review))}</div>
                 </div>
               )
             );
@@ -565,7 +565,7 @@ export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
     await mongoose.connect(process.env.MONGO_URI);
   }
-  let review = [await Review.findOne({ slug: context.query.slug })];
+  let review = await Review.find({ slug: context.query.slug });
   let product = await Product.findOne({ slug: context.query.slug });
   let variants = await Product.find({ title: product.title });
   let sizeColorSlug = {};
