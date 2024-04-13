@@ -31,7 +31,7 @@ export default function Page({ addToCart, product, variants, review }) {
       });
       let response = await res.json();
       setRate(0);
-      setComment("");
+      setComment(null);
       router.reload();
     } catch (error) {
       console.error("Error:", error);
